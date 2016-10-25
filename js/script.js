@@ -12,17 +12,34 @@
   });
 
   // acessing the global variable from config.js
-  console.log(POP_UP_GLOBALS.DEFAULTS.time_in_minites + "time"+ set_time());
+  console.log(POP_UP_GLOBALS.DEFAULTS.time_in_minites + "time" + set_time());
 
-// Cookies example
-  Cookies.set('color', '#fff');
-  Cookies.set('name', { foo: 'bar' });
+  /* Cookies example
+    Cookies.set('color', '#fff');
+    Cookies.set('name', { foo: 'bar' });
 
-  var name = Cookies.get('name'); // => '{"foo":"bar"}' 
+    var name = Cookies.get('name'); // => '{"foo":"bar"}' 
 
-  console.log(name);
+    console.log(name);
+  */
 
 // --- End of Cookies --
+
+// open the remodal
+
+  var inst = $('[data-remodal-id=modal]').remodal();
+  
+  /**
+   * Opens the modal window
+   */
+   function open_based_on_time() {
+    inst.open();
+   }
+  //inst.open();
+  
+  $(function() {
+      setTimeout(open_based_on_time, POP_UP_GLOBALS.DEFAULTS.fire_popup_time);
+  });
 
 // -- Events --
 
