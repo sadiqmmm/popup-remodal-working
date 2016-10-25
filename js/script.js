@@ -3,13 +3,16 @@
   // set the expire time in minuties
 
   function set_time(set_time = 15) {
-    var set_time_variable = new Date(new Date().getTime() +  set_time * 60 * 1000);
+    var set_time_variable = new Date(new Date().getTime() + set_time * 60 * 1000);
     return set_time_variable;  
   }
 
   Cookies.set('popup', 'true', {
-      expires: set_time(15)
+      expires: set_time(POP_UP_GLOBALS.DEFAULTS.time_in_minites)
   });
+
+  // acessing the global variable from config.js
+  console.log(POP_UP_GLOBALS.DEFAULTS.time_in_minites + "time"+ set_time());
 
 // Cookies example
   Cookies.set('color', '#fff');
