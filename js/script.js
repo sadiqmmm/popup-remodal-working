@@ -2,6 +2,14 @@
 
 $(document).on('opening', '.remodal', function () {
   console.log('opening');
+
+  Cookies.set('color', '#fff');
+  Cookies.set('name', { foo: 'bar' });
+
+  var name = Cookies.get('name'); // => '{"foo":"bar"}' 
+
+  console.log(name);
+   
 });
 
 $(document).on('opened', '.remodal', function () {
