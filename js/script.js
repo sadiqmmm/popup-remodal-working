@@ -1,14 +1,30 @@
-// -- Events --
+// --- Start of Cookies --
 
-$(document).on('opening', '.remodal', function () {
-  console.log('opening');
+  // set the expire time in minuties
 
+  function set_time(set_time = 15) {
+    var set_time_variable = new Date(new Date().getTime() +  set_time * 60 * 1000);
+    return set_time_variable;  
+  }
+
+  Cookies.set('popup', 'true', {
+      expires: set_time(15)
+  });
+
+// Cookies example
   Cookies.set('color', '#fff');
   Cookies.set('name', { foo: 'bar' });
 
   var name = Cookies.get('name'); // => '{"foo":"bar"}' 
 
   console.log(name);
+
+// --- End of Cookies --
+
+// -- Events --
+
+$(document).on('opening', '.remodal', function () {
+  console.log('opening'); 
    
 });
 
