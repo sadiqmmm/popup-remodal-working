@@ -7,12 +7,9 @@
     return set_time_variable;  
   }
 
-  Cookies.set('popup', 'true', {
-      expires: set_time(POP_UP_GLOBALS.DEFAULTS.time_in_minites)
-  });
-
+  
   // acessing the global variable from config.js
-  console.log(POP_UP_GLOBALS.DEFAULTS.time_in_minites + "time" + set_time());
+  // console.log(POP_UP_GLOBALS.DEFAULTS.time_in_minites + "time" + set_time());
 
   /* Cookies example
     Cookies.set('color', '#fff');
@@ -32,14 +29,31 @@
   /**
    * Opens the modal window
    */
-   function open_based_on_time() {
+
+  function open_based_on_time() {
     inst.open();
    }
-  //inst.open();
-  
-  $(function() {
-      setTimeout(open_based_on_time, POP_UP_GLOBALS.DEFAULTS.fire_popup_time);
-  });
+
+
+  if (Cookies.get('popup') === "true") {
+    console.log("Already set. Wait for 1 min popup = " + Cookies.get('popup'));
+  }
+  else {
+    
+    Cookies.set('popup', 'true', {
+      expires: set_time(POP_UP_GLOBALS.DEFAULTS.time_in_minites)
+    });
+   
+   
+    //inst.open();
+    
+    $(function() {
+        setTimeout(open_based_on_time, POP_UP_GLOBALS.DEFAULTS.fire_popup_time);
+    });
+
+   console.log("Setting it for 1 min");
+  }
+ 
 
 // -- Events --
 

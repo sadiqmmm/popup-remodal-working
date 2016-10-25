@@ -12,7 +12,7 @@ window.POP_UP_GLOBALS = {
   //   }
 
   DEFAULTS: {
-    time_in_minites: 15,  // currently set to 15 minutes          
-    fire_popup_time: 5000 // delay on load time
+    time_in_minites: 1,  // currently set to 15 minutes          
+    fire_popup_time: 500 // delay on load time
     }
    };
